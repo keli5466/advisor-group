@@ -1,0 +1,3 @@
+!= Former::text("blockCenteredCallout[{$id}][headline]", 'Headline')
+!= Former::wysiwyg("blockCenteredCallout[{$id}][copy]", 'Copy')
+!= Former::radiolist("blockCenteredCallout[{$id}][slash]", 'Slash Direction')->from(App\BlockCenteredCallout::$slashes)

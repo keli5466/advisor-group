@@ -1,0 +1,6 @@
+!= Former::text("blockIconToutsAndImage[{$id}][headline]", 'Headline')
+!= Former::text("blockIconToutsAndImage[{$id}][eyebrow]", 'Eyebrow')
+!= Former::image('icon_touts_and_image_image', 'Background')->help('The background image behind the details.<br><br><u>Image Size</u><br>Upload ratio: <b>130/317</b><br>Design Dimensions: <b>260px x 634px </b><br>Recommended(Retina) Upload Image Size: <b>520px x 1268px</b><br>Image min-height: <b>634px</b><br><br><u>Important</u><br><li> After upload please <b>click the cropping icon(scissor icon)</b> to ensure your image can fit the aspect ratio.</li><li>About 130px(half) of the actual image will show after the slide in effect. Which means the rest of the image will be hidden under the top slide. If the Image is on the right->the right 130px(half) is what will be visible after the slide event and vice versa. Keep that in mind when selecting an image.</li>')->aspect(130/317)
+!= Former::radiolist("blockIconToutsAndImage[{$id}][layout]", 'Layout')->from(App\BlockIconToutsAndImage::$layouts)->help('The side that the image will appear on.')
+!= Former::radiolist("blockIconToutsAndImage[{$id}][theme]", 'Theme')->from(App\BlockIconToutsAndImage::$themes)->help('White or grey background.')
+!= Former::listing('App\IconTout', 'Touts')->layout('form')

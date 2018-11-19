@@ -1,0 +1,381 @@
+/**
+ * This partial is @import-ed automatically at the top of every styl file
+ * who is required from a JS file by a webpack loader.  It should not contain
+ * any styles because they would be repeated in every instance of the import.
+ * It should only contain variable and mixin definitions.
+ */
+
+/*******************************************************************************
+ * Vars
+ */
+
+// Breakpoints
+wide-break = 1200px
+desktop = 1024px
+tablet = 767px //1px less, used for mobile-tablet
+mobile = 580px
+// min widths
+
+XL = 1440px
+L = 1024px
+M = 768px
+S = 580px
+
+ico = 'icomoon'
+
+// Colors
+black = #2c3032
+white = #ffffff
+offwhite = #f4f4f4
+silver = #d0d3d4
+charcoal = #323739
+light-grey = #fafafa
+dark-grey = #2c3032
+grey = #7c878e
+
+// Site Theme colors
+ag-primary = #3e7ea2
+ag-secondary = #67b198
+fsc-primary = #f7bc15
+fsc-secondary = #39489d
+
+raa-primary = #39489d
+raa-secondary = #e4592d
+
+wfs-primary = #84c446
+wfs-secondary = #00b2ee
+
+spf-primary = #45166a
+spf-secondary = #778d1d
+
+sites = ag, fsc , raa, wfs, spf
+
+h1shadow = 3px 3px 100px black
+// Whitespace
+page-margin = rem(100px)
+v-pad = rem(100px)
+v-pad-mobile = rem(60px)
+h-pad-mobile = rem(30px)
+l-pad-inner = rem(100px)// 6.94vw
+l-pad-inner-vw = 6.944444444444445vw //100px
+gutter = rem(40px)
+gutter-mobile = 20px
+gutter-wide = 9.027777777777777vw // rem(130px)
+
+easeOutQuart = cubic-bezier(0.165, 0.840, 0.440, 1.000)
+// Transitions
+smooth-in = cubic-bezier(.19,1,.22,1)
+smooth-out = cubic-bezier(.55,.04,.95,.41)
+smooth-in-out = cubic-bezier(.8,0,.2,1)
+t-time = 500ms
+delay-time = 300ms
+
+fade-time= 500ms
+
+
+// Typography
+body-font-size = 20px
+slash-pad = 20px
+
+// Slide vars
+half-width = 45vw
+quarter-width = 25vw
+third-width = 35vw
+
+// The width the slide moves
+move-width = 10vw
+
+
+// The amount the card will move when pressed
+press-move = rem(10px)
+
+// Layout
+
+XL-max = 1700px
+max-w = 1440px
+inner-max-w = 1200px
+outer-max-w = 1440px
+header-h-desktop = rem(122px)
+header-h-desktop-short = 56px
+header-h-mobile = header-h-desktop-short
+header-z = 10
+hr-w = 60px
+nav-height = 70px
+
+/*******************************************************************************
+ * Mixins
+ */
+
+// Mixins must be relative to `resolve.root` (the "~") since this module may be
+// included at any folder depth. Globing is not possible here because the glob-er
+// doesn't work within @import-ed files.
+
+// The Bukwild shared stylus library
+support-for-ie = false
+@require '~bukwild-stylus-library';
+
+
+// Global Mixins
+left-spacing()
+	vw-until(margin-left, l-pad-inner-vw, break = max-w)
+	@media (max-width mobile)
+		margin-left 0
+
+// Mixin for slide-in motion the component must have ".slide-in" as a parent class.
+top-slide-in(side, w)
+	imageWidth = w + move-width
+	if side == 'right'
+		@media (min-width S)
+			.image
+				right 0
+				width imageWidth
+			.play-btn.desktop
+				right -(w / 2)
+				transform  translate(50%,-50%)
+				
+			.top-slide
+				margin-right w
+				padding-left gutter-wide
+				transform translateX(-(move-width))
+
+			// max-width effect for XL screen.
+		@media (min-width XL-max)
+			.top-slide
+				padding-left 'calc(50vw - %s / 2)' % (inner-max-w)
+				margin-right auto
+				width auto
+
+			.image
+				width 'calc(%s + (50vw - %s / 2))' % (imageWidth inner-max-w)
+
+	if side == 'left'
+		@media (min-width S)
+			.image
+				left 0
+				width imageWidth
+
+			.play-btn.desktop
+				left -(w / 2)
+				transform  translate(-50%,-50%)
+
+			.top-slide
+				margin-left w
+				padding-right gutter-wide
+				transform translateX(move-width)
+
+		// max-width effect for XL screen.
+		@media (min-width XL-max)
+			.image
+				width 'calc(%s + (50vw - %s / 2))' % (imageWidth inner-max-w)
+		
+			.top-slide
+				padding-right 'calc(50vw - %s / 2)' % (inner-max-w)
+				margin-left auto
+				width auto
+
+
+top-slide-in-copy_image(side, w)
+
+	if side == 'right'
+		@media (min-width S)
+			.image
+				right 0
+				width w
+			.play-btn.desktop
+				right -(w / 2)
+				transform  translate(50%,-50%)
+			.top-slide
+				margin-right w
+				padding-left gutter-wide
+
+
+			// max-width effect for XL screen.
+		@media (min-width XL-max)
+			.top-slide
+				padding-left 'calc(50vw - %s / 2)' % (inner-max-w)
+				.content
+					margin-left auto
+			.play-btn.desktop
+				transform  translate(50%,-50%)
+
+
+	if side == 'left'
+		@media (min-width S)
+			.image
+				left 0
+				width w
+
+			.play-btn.desktop
+				left -(w / 2)
+				transform  translate(-50%,-50%)
+
+			.top-slide
+				margin-left w
+				padding-right gutter-wide
+				// transform translateX(move-width)
+
+		// max-width effect for XL screen.
+		@media (min-width XL-max)
+			.play-btn.desktop
+				transform  translate(-50%,-50%)
+			.top-slide
+				padding-right 'calc(50vw - %s / 2)' % (inner-max-w)
+				.content
+					margin-right auto
+				
+// Typography Mixins
+eyebrow-title()
+	font 'prox', , black
+	font-size 13px, true
+	font-weight bold
+	letter-spacing 1px
+	text-transform uppercase
+	@media (max-width mobile)
+		font-size 12px,true
+
+wysiwyg-copy()
+	font 'regular', 26px, black
+	font-weight 300
+	line-height 1.45
+	@media (max-width mobile)
+		font-size 20px,true
+
+headline()
+	font 'regular', 70px, white
+	font-weight 300
+	line-height 1
+	@media (max-width mobile)
+		// font-size 38px
+		line-height 1.16
+		font-weight normal
+
+button-style()
+	font 'prox', 18px, white
+	letter-spacing 2px
+	font-weight  bold
+	line-height normal
+	text-transform uppercase
+	@media (max-width mobile)
+		font-size 14px, true
+
+cta-style()
+	font 'prox', 14px
+	font-size 14px,true
+	font-weight bold
+	letter-spacing 1.3px
+	text-transform uppercase
+	@media (max-width mobile)
+		font-size 12px, true
+
+body-copy()
+	font 'prox', 18px , black
+	font-weight 300
+	letter-spacing normal
+	line-height 1.67
+	@media (max-width mobile)
+		// font-size 16px
+		// line-height 1.5
+
+bullet-copy()
+	font 'prox', 16px
+	font-weight 300
+	line-height 1.5
+	letter-spacing normal
+	@media (max-width tablet)
+		font-size 15px , true
+		letter-spacing 0.3px
+
+corner-card()
+	border-right rem(10px) solid #edf1f4
+	border-bottom rem(10px) solid #edf1f4
+
+/**
+ * Simple font declaraations
+ *
+ * @param  {string} style
+ * @param  {unit}   size   Font size, will be rem-ed automatically
+ * @param  {color}  color
+ */
+font(style, size = null, color = null)
+
+	// Fonts
+	if style == 'regular'
+		font-family 'ff-tisa-web-pro'
+		font-weight normal
+		font-style normal
+	else if style == 'prox'
+		font-family 'proxima-nova'
+		font-weight normal
+		font-style normal
+
+	// Icomoon
+	else if style == 'icon'
+		font-family 'icomoon' !important;
+		speak none
+		font-style normal
+		font-weight normal
+		font-variant normal
+		text-transform none
+		line-height 1
+
+	// Add font size using the rem value of what was passed in
+	font-size size if size
+
+	// Add font color
+	color color if color
+
+/**
+ * Helper for implementing icons
+ *
+ * @param  {string} name   The name of the icon
+ * @param  {unit}   size   Font size, will be rem-ed automatically
+ * @param  {color}  color
+ */
+icon(name, size = null, color = null)
+	font 'icon', size, color
+	content lookup('icon-' + name)
+
+// Apply block theme colors, only to be used inside of blocks
+blockThemeColor(rule, opacity = 1)
+	for name in sites
+		.block:nth-of-type(odd) &
+			body[site={name}] &
+				if rule == 'underline'
+					background linear-gradient(to right, rgba(name + '-primary', opacity))
+				else
+					{rule} tint(name + '-primary', (1 - opacity) * 100%)
+
+		.block:nth-of-type(even) &
+			body[site={name}] &
+				if rule == 'underline'
+					background linear-gradient(to right, rgba(name + '-secondary', opacity))
+				else
+					{rule} tint(name + '-secondary', (1 - opacity) * 100%)
+
+// Apply the site primary theme color
+sitePrimaryThemeColor(rule, opacity = 1)
+	for name in sites
+		body[site={name}] &
+			{rule} tint(name + '-primary', (1 - opacity) * 100%)
+
+// Apply the site secondary theme color
+siteSecondaryThemeColor(rule, opacity = 1)
+	for name in sites
+		body[site={name}] &
+			{rule} tint(name + '-secondary', (1 - opacity) * 100%)
+
+blockThemeColorArticle(rule, opacity = 1)
+	for name in sites
+			body[site={name}] &
+				if rule == 'underline'
+					background linear-gradient(to right, rgba(name + '-primary', opacity))
+				else
+					{rule} tint(name + '-primary', (1 - opacity) * 100%)
+
+
+// Creates VW then breaks it back to pixels on break point
+vw-calc(prop, size, break = max-w)
+	convert = (size / break) * 100
+	{prop} unit(convert, vw)
+	@media(min-width break)
+		{prop} size

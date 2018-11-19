@@ -1,0 +1,32 @@
+.pagination
+	width 100%
+	list-style-type none
+	padding 0
+	display flex
+	justify-content center
+
+	.page-item
+		text-align center
+		margin 0 rem(10px)
+
+		a
+			padding rem(5px) rem(10px)
+			background white
+			font 'prox', 16px, grey
+			line-height 20px
+			transition background 300ms, color 300ms
+
+		&.pagination-next-nav
+			a
+				padding-left rem(10px)
+				padding-right @padding-left
+
+		&.active
+			a
+				blockThemeColor background
+				color white
+
+		&:hover
+			a
+				blockThemeColor background
+				color white

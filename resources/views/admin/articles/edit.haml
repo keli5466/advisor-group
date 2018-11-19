@@ -1,0 +1,28 @@
+!= View::make('decoy::shared.form._header', $__data)->render()
+
+%fieldset
+	.legend Detail
+	!= Former::text('title')
+	!= Former::date('date')
+	!= Former::radiolist('type', 'Type')->from(App\Article::$types)->dataToggleable('type')
+	!= Former::boolean('gated', 'Gated')->help('Show the gate before accessing this article?')->dataShowWhenType('resources')
+	!= Former::text('cta_text')->help('This will default to <b>Read More</b>')
+	!= Former::image('marquee', 'Marquee Image')
+	!= Former::text('tag')->dataShowWhenType('resources')
+	!= Former::wysiwyg('body')
+	!= Former::listing(App\Block::class)->layout('form')->take(100)
+
+%fieldset
+	.legend Listing
+	!= Former::textarea('abstract')
+	!= Former::image('listing', 'Image')
+
+%fieldset
+	.legend SEO
+	!= Former::textarea('description')->help('Rendered in the <code>&lt;meta&gt;</code> description tag, this will be displayed in search engine results.')
+	!= Former::image('seo', 'Image')->help('Populates the <code>&lt;og:image&gt;</code> tag for the page.')
+
+%fieldset
+	!= View::make('decoy::shared.form._display_module', $__data)->render()
+
+!= View::make('decoy::shared.form._footer', $__data)->render()

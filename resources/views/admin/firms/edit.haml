@@ -1,0 +1,17 @@
+!= View::make('decoy::shared.form._header', $__data)->render()
+
+%fieldset
+	.legend= empty($item) ? 'New' : 'Edit'
+	!= Former::text('name')
+	!= Former::wysiwyg('description')
+	!= Former::image('background')->help('<u>Image Size</u><br>Upload ratio: <b>118/127</b><br>Design Dimensions: <b>590px x 635px </b><br>Recommended(Retina) Upload Image Size: <b>1180px x 1270px</b><br>Image min-height: <b>590px</b><br><br><br><u>Important</u><br><li> After upload please <b>click the cropping icon(scissor icon)</b> to ensure your image can fit the aspect ratio.</li><li>This image will appear to the side of the content and take up half of the box</li>')->aspect(118/127)
+	!= Former::image('light_logo', 'Light Logo')->help('<u>Image Size</u><br>Upload ratio: <b>20/7</b><br>Design Dimensions: <b>340px x 119px </b><br>Recommended(Retina) Upload Image Size: <b>680px x 238px</b><br><br><u>Important</u><br><li> After upload please <b>click the cropping icon(scissor icon)</b> to ensure your image can fit the aspect ratio.</li><li>This logo will appear on top of the background image</li>')->aspect(20/7)
+	!= Former::image('dark_logo', 'Dark Logo')->help('<u>Image Size</u><br>Upload ratio: <b>20/7</b><br>Design Dimensions: <b>200px x 70px </b><br>Recommended(Retina) Upload Image Size: <b>400px x 140px</b><br><br><u>Important</u><br><li> After upload please <b>click the cropping icon(scissor icon)</b> to ensure your image can fit the aspect ratio.</li><li>This logo will appear at the top of the firms list and act as an anchor link</li>')->aspect(20/7)
+	!= Former::text('cta', 'CTA Text')
+	!= Former::text('url', 'URL')
+
+%fieldset
+	!= View::make('decoy::shared.form._display_module', $__data)->render()
+
+!= View::make('decoy::shared.form._footer', $__data)->render()
+

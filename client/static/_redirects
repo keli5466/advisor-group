@@ -1,0 +1,84 @@
+##################
+# Apex redirects #
+##################
+https://advisorgroup.com/* https://www.advisorgroup.com/:splat 301!
+https://fscsecurities.com/* https://www.fscsecurities.com/:splat 301!
+https://royalalliance.com/* https://www.royalalliance.com/:splat 301!
+https://sagepointfinancial.com/* https://www.sagepointfinancial.com/:splat 301!
+https://woodburyfinancial.com/* https://www.woodburyfinancial.com/:splat 301!
+
+############################
+# Netlify domain redirects #
+############################
+
+# AG
+http://ag-public.netlify.com/* https://www.advisorgroup.com/:splat 301!
+http://ag-public.netlify.com./* https://www.advisorgroup.com/:splat 301!
+https://ag-public.netlify.com/* https://www.advisorgroup.com/:splat 301!
+https://ag-public.netlify.com./* https://www.advisorgroup.com/:splat 301!
+
+# FSC
+http://fsc-public.netlify.com/* https://www.fscsecurities.com/:splat 301!
+http://fsc-public.netlify.com./* https://www.fscsecurities.com/:splat 301!
+https://fsc-public.netlify.com/* https://www.fscsecurities.com/:splat 301!
+https://fsc-public.netlify.com./* https://www.fscsecurities.com/:splat 301!
+
+# RAA
+http://raa-public.netlify.com/* https://www.royalalliance.com/:splat 301!
+http://raa-public.netlify.com./* https://www.royalalliance.com/:splat 301!
+https://raa-public.netlify.com/* https://www.royalalliance.com/:splat 301!
+https://raa-public.netlify.com./* https://www.royalalliance.com/:splat 301!
+
+# SPF
+http://spf-public.netlify.com/* https://www.sagepointfinancial.com/:splat 301!
+http://spf-public.netlify.com./* https://www.sagepointfinancial.com/:splat 301!
+https://spf-public.netlify.com/* https://www.sagepointfinancial.com/:splat 301!
+https://spf-public.netlify.com./* https://www.sagepointfinancial.com/:splat 301!
+
+# WFS
+http://wfs-public.netlify.com/* https://www.woodburyfinancial.com/:splat 301!
+http://wfs-public.netlify.com./* https://www.woodburyfinancial.com/:splat 301!
+https://wfs-public.netlify.com/* https://www.woodburyfinancial.com/:splat 301!
+https://wfs-public.netlify.com./* https://www.woodburyfinancial.com/:splat 301!
+
+#####################
+# Alternate domains #
+#####################
+
+# AG
+http://advisorgroupsupport.com/* https://www.advisorgroup.com/:splat 301!
+http://joinadvisorgroup.com/* https://www.advisorgroup.com/:splat 301!
+http://www.advisorgroupsupport.com/* https://www.advisorgroup.com/:splat 301!
+http://www.joinadvisorgroup.com/* https://www.advisorgroup.com/:splat 301!
+
+# FSC
+http://fscorp.com/* https://www.fscsecurities.com/:splat 301!
+http://www.fscorp.com/* https://www.fscsecurities.com/:splat 301!
+
+# RAA
+http://joinroyalalliance.com/* https://www.royalalliance.com/:splat 301!
+http://royalaa.com/* https://www.royalalliance.com/:splat 301!
+http://royalalliancerecruiting.com/* https://www.royalalliance.com/:splat 301!
+http://www.joinroyalalliance.com/* https://www.royalalliance.com/:splat 301!
+http://www.royalaa.com/* https://www.royalalliance.com/:splat 301!
+http://www.royalalliancerecruiting.com/* https://www.royalalliance.com/:splat 301!
+
+# SPF
+http://sagepnt.com/* https://www.sagepointfinancial.com/:splat 301!
+http://spfi.com/* https://www.sagepointfinancial.com/:splat 301!
+http://sagepointadvisor.com/* https://www.sagepointfinancial.com/:splat 301!
+http://joinsagepoint.com/* https://www.sagepointfinancial.com/:splat 301!
+http://www.sagepointfin.com/* https://www.sagepointfinancial.com/:splat 301!
+http://www.sagepnt.com/* https://www.sagepointfinancial.com/:splat 301!
+http://www.spfi.com/* https://www.sagepointfinancial.com/:splat 301!
+http://www.sagepointadvisor.com/* https://www.sagepointfinancial.com/:splat 301!
+http://www.joinsagepoint.com/* https://www.sagepointfinancial.com/:splat 301!
+
+# WFS
+http://joinwoodbury.com/* https://www.woodburyfinancial.com/:splat 301!
+http://www.joinwoodbury.com/* https://www.woodburyfinancial.com/:splat 301!
+
+#####################
+# One-off redirects #
+#####################
+https://www.sagepointfinancial.com/materials/recruiting http://info.advisorgroup.com/SagePoint-Financial-Resources 301

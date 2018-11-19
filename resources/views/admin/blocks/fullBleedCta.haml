@@ -1,0 +1,6 @@
+!= Former::text("blockFullBleedCta[{$id}][headline]", 'Headline')
+!= Former::text("blockFullBleedCta[{$id}][eyebrow]", 'Eyebrow')
+!= Former::wysiwyg("blockFullBleedCta[{$id}][copy]", 'Copy')
+!= Former::text("blockFullBleedCta[{$id}][cta]", 'CTA')
+!= Former::text("blockFullBleedCta[{$id}][url]", 'URL')
+!= Former::image("full_bleed_cta_background", 'Background')->help('<u>Image Size</u><br>Upload ratio: <b>36/17</b><br>Design Dimensions: <b>1440px x 680px </b><br>Recommended(Retina) Upload Image Size: <b>2880px x 1360px</b><br><br><u>Important</u><br><li> After upload please <b>click the cropping icon(scissor icon)</b> to ensure your image can fit the aspect ratio.</li>')->aspect(36/17)

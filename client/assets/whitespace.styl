@@ -1,0 +1,32 @@
+// Shared max-width class
+.max-w
+	max-width max-w
+	margin-h auto
+	padding-h rem(130px)
+	@media(max-width tablet-landscape - 1px)
+		padding-h gutter
+	@media(max-width tablet - 1px)
+		padding-h gutter-mobile
+
+// Tighter max-width
+
+.inner-max-w
+	max-width inner-max-w
+	width auto
+	margin-h auto
+	@media (max-width max-w)
+		margin-h gutter-wide
+	@media (max-width mobile)
+		margin-h gutter-mobile
+
+// Add standard v-pad rules to blocks
+.block-v-pad
+	padding-v v-pad
+	@media(max-width tablet - 1px)
+		padding-v v-pad-mobile
+
+
+.block-v-marg
+	margin-v v-pad
+	@media(max-width tablet - 1px)
+		margin-v v-pad-mobile

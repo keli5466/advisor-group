@@ -1,0 +1,112 @@
+// The default buttons
+.btn
+	display inline-block
+	button-style()
+	text-align center
+	padding rem(18px)
+	position relative
+	z-index 1
+	cursor pointer
+	&:after
+		blockThemeColor background-color, .88
+		position absolute
+		top 0
+		left 0
+		right 0
+		z-index -1
+		height 0
+		width 100%
+		content ''
+		transition height .25s ease
+		background-position center top
+	&:active
+		transition background .25s ease, color .3s ease-in
+		blockThemeColor background-color
+		color white !important //needed to override blockThemeColor
+
+	@media (min-width S)
+		&:hover
+				&:after
+					height 100%
+					transition height .25s ease
+
+	// When the button has a slash behind it
+	&.slash
+		&:before
+			content ''
+			background silver
+			height 1px
+			left 50%
+			position absolute
+			top 50%
+			transform translate(-50%, -50%) rotate(45deg)
+			width 100%
+			z-index -1
+
+// Outlined buttons
+.outline-btn
+	border 1px solid silver
+	display inline-block
+	font 'prox', 14px
+	font-weight 600
+	letter-spacing 1.3px
+	padding rem(15px) rem(20px)
+	text-transform uppercase
+	position relative
+	&:before
+		blockThemeColor background-color, 0.1
+		position absolute
+		top 0
+		left 0
+		right 0
+		z-index -1
+		height 0
+		width 100%
+		content ''
+		transition height .25s ease
+		background-position center top
+	&:active
+		transition background .25s ease, color .3s ease-in
+		blockThemeColor background
+		border-color transparent
+		color white !important //needed to override blockThemeColor
+
+	@media (min-width S)
+		&:hover
+				&:before
+					height 100%
+					transition height .25s ease
+
+
+
+
+.learn-more
+
+	&:active
+		blockThemeColor color, 0.6
+		&:after
+			blockThemeColor border-color, 0.6
+
+	&:hover
+		&:after
+				animation bounceright-rotate .3s alternate ease infinite
+
+	cta-style()
+	blockThemeColor color
+	position relative
+	padding-right 10px
+	display inline-block
+	vertical-align middle
+	margin-top rem(18px)
+
+	&:after
+		content ''
+		box-sizing border-box
+		height 8px
+		width 8px
+		border-style solid
+		blockThemeColor border-color
+		border-width 0 2px 2px 0
+		font-family 'icomoon'
+		display inline-block
+		transform rotate(-45deg)

@@ -1,0 +1,4 @@
+!= Former::text("blockTwoColumnIconTouts[{$id}][headline]", 'Headline')
+!= Former::text("blockTwoColumnIconTouts[{$id}][eyebrow]", 'Eyebrow')
+!= Former::radiolist("blockTwoColumnIconTouts[{$id}][theme]", 'Theme')->from(App\BlockTwoColumnIconTouts::$themes)->help('White or grey background.')
+!= Former::listing('App\IconTout', 'Icon Touts')->layout('form')

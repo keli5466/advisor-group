@@ -1,0 +1,42 @@
+// General wysiwyg styling
+// Here is the global style for the wysiwyg block. copy is the parent, call .copy-center for blocks that are centered and .copy-left for the margin left block
+
+
+.wysiwyg
+	wysiwyg-copy()
+
+// THE RGBA is a place holder for the BlockThemeColor
+.wysiwyg u, .subhead u
+	text-decoration none
+	blockThemeColor underline, 0.4
+	// needed to override the deafult background rule because set witht he blockThemeColor function
+	background-repeat no-repeat!important
+	background-position 0 93% !important
+	background-size 100% .5rem !important
+
+.subhead u
+	background-position 0 120% !important
+	
+.copy-wysiwyg
+
+	@media (max-width mobile)
+		margin h-pad-mobile
+		width auto
+		max-width 100%
+
+	.eyebrow
+		eyebrow-title()
+		margin-bottom 13px
+
+	.headline
+		wysiwyg-copy()
+
+	.headline
+	.wysiwyg
+		left-spacing()
+
+
+	.subhead
+		body-copy()
+		margin-top rem(26px)
+		left-spacing()

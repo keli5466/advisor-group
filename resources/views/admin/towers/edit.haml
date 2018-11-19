@@ -1,0 +1,18 @@
+!= View::make('decoy::shared.form._header', $__data)->render()
+
+%fieldset
+	.legend=empty($item) ? 'New' : 'Edit'
+	!= Former::text('title')->help('Used as the HTML <code>&lt;title&gt;</code>.')
+	!= Former::listing(App\Block::class)->layout('form')->take(100)
+
+%fieldset
+	.legend SEO
+	!= Former::textarea('description')->help('Rendered in the <code>&lt;meta&gt;</code> description tag, this will be displayed in search engine results.')
+	!= Former::image('image')->help('Populates the <code>&lt;og:image&gt;</code> tag for the page.')
+
+%fieldset
+	!= View::make('decoy::shared.form.display._legend', $__data)->render()
+	!= Former::text('route')->help('Used to form the '.($item?"<a href='{$item->uri}'>URI</a>":'URI').' for this content.')->prepend('/');
+	!= View::make('decoy::shared.form.display._visibility', $__data)->render()
+
+!= View::make('decoy::shared.form._footer', $__data)->render()

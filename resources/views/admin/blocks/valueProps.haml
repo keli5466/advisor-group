@@ -1,0 +1,7 @@
+!= Former::text("blockValueProps[{$id}][headline]", 'Headline')->help('This will appear as an eyebrow in this block.')
+!= Former::wysiwyg("blockValueProps[{$id}][subhead]", 'Subhead')
+!= Former::image('value_props_background', 'Background')->help('The background image behind the details.<br><br><u>Image Size</u><br>Upload ratio: <b>65/418</b><br>Design Dimensions: <b>260px x 1672px </b><br>Recommended(Retina) Upload Image Size: <b>520px x 3344px</b><br>Image min-height: <b>1672px</b><br><br><u>Important</u><br><li> After upload please <b>click the cropping icon(scissor icon)</b> to ensure your image can fit the aspect ratio.</li><li>About 130px(half) of the actual image will show after the slide in effect. Which means the rest of the image will be hidden under the top slide. If the Image is on the right->the right 130px(half) is what will be visible after the slide event and vice versa. Keep that in mind when selecting an image.</li>')->aspect(65/418)
+!= Former::radiolist("blockValueProps[{$id}][layout]", 'Layout')->from(App\BlockIconToutsAndImage::$layouts)->help('The side that the image will appear on.')
+!= Former::listing('App\IconTout', 'Touts')->layout('form')
+!= Former::text("blockValueProps[{$id}][cta]", 'CTA')
+!= Former::text("blockValueProps[{$id}][url]", 'URL')

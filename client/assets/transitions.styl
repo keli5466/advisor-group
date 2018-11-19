@@ -1,0 +1,82 @@
+// Animate transtition between active tabs
+.fade-enter-active, .fade-leave-active
+	transition opacity .3s
+.fade-enter, .fade-leave-to
+	opacity 0
+
+
+.slow-fade-enter-active, .slow-fade-leave-active
+	transition opacity 1s
+.slow-fade-enter, .slow-fade-leave-to
+	opacity 0
+
+// Slide in from right
+.slide-right-enter-active, .slide-right-leave-active
+	transition opacity .3s, transform .3s
+.slide-right-enter, .slide-right-leave-to
+	opacity 0
+	transform translateX(100%)
+
+// Animate transtition between marquee images
+.slow-fade-enter-active, .slow-fade-leave-active
+	transition opacity 1s ease
+.slow-fade-enter, .slow-fade-leave-to
+	opacity 0
+
+
+.slide-fade-enter-active, .slide-fade-leave-active
+	transition transform .3s
+.slide-fade-enter, .slide-fade-leave-to
+	transform translateX(-100%)
+
+// Animate transtition between active tabs
+.fade-down-enter-active, .fade-down-leave-active
+	transition opacity .3s,
+						transform .3s
+.fade-down-enter, .fade-down-leave-to
+	opacity 0
+	transform translateY(-5px)
+
+// Page change transition
+.page-enter-active, .page-leave-active
+	transition opacity .15s
+	html.ie &
+		transition-duration 0
+		min-height 100vh
+.page-enter, .page-leave-to
+	opacity 0
+
+.staggered-transition
+	transition all .5s ease
+	opacity 1
+.staggered-enter, .staggered-leave
+	opacity 0
+
+.kenburns
+	-webkit-transform-style preserve-3d
+	animation kenburns 15s ease-in forwards
+
+@keyframes kenburns
+	0%
+		transform scale(1)
+	100%
+		transform scale(1.1) rotate(0.1deg)
+
+@keyframes bounceright
+	from
+		transform translateX(0)
+	to
+		transform translateX(3px)
+
+
+@keyframes bounceright-rotate
+	from
+		transform translateX(0) rotate(-45deg)
+	to
+		transform translateX(3px) rotate(-45deg)
+
+@keyframes bounceright-video
+	from
+		transform translateX(0) rotate(-90deg)
+	to
+		transform translateX(3px) rotate(-90deg)

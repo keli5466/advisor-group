@@ -1,0 +1,3 @@
+!= Former::Image('image_and_cta_image', 'Image')
+!= Former::radiolist("blockImageAndCta[{$id}][layout]", 'Layout')->from(App\BlockImageAndCta::$layouts)->help('Align the image to the left or right.')
+!= Former::listing('App\CtaCard', 'CTA Cards')->layout('form')

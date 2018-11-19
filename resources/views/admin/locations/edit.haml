@@ -1,0 +1,15 @@
+!= View::make('decoy::shared.form._header', $__data)->render()
+
+%fieldset
+	.legend= empty($item) ? 'New' : 'Edit'
+	!= Former::text('name')
+	!= Former::wysiwyg('description')
+	!= Former::text('address')
+	!= Former::boolean('home', 'Is Home Pin?')->help('Should this be a larger pin with BD logo?')
+	- if ($item)
+		!= Former::note('Map', '<img src="'.$item->map_src.'">')
+
+%fieldset
+	!= View::make('decoy::shared.form._display_module', $__data)->render()
+
+!= View::make('decoy::shared.form._footer', $__data)->render()

@@ -1,0 +1,8 @@
+.site-selector
+	%span.prompt Site:
+	%span.current= app('site')->name()
+	.select
+		:php
+			echo Former::select('site', false)
+				->options(app('site')->sites)
+				->select(app('site')->slug)

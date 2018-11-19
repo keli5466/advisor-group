@@ -1,0 +1,5 @@
+!= Former::text("blockFirmsListing[{$id}][headline]", 'Headline')
+!= Former::wysiwyg("blockFirmsListing[{$id}][subhead]", 'Subhead')
+!= Former::radiolist("blockFirmsListing[{$id}][layout]", 'Layout')->from(App\BlockFirmsListing::$layouts)->help('The type of layout. <b>Minimal</b> for a compact card list of firms, and <b>expanded</b> for a full detail list.')->dataToggleable('layout')
+!= Former::image('firms_listing_background', 'Background')->help('This image will only appear on the minimal layout.<br><br><u>Image Size</u><br>Upload ratio: <b>16/7</b><br>Design Dimensions: <b>630px x 1440px </b><br>Recommended(Retina) Upload Image Size: <b>1260px x 2880px</b><br>Image min-height: <b>630px</b><br><br><u>Important</u><br><li> After upload please <b>click the cropping icon(scissor icon)</b> to ensure your image can fit the aspect ratio.</li><li>This Image has a set opacity, meaning any image you upload will show up lighter than expected</li>')->aspect(16/7)->dataShowWhenLayout('minimal')
+

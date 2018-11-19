@@ -1,0 +1,4 @@
+!= Former::text("blockCopyAndIconBulletPoint[{$id}][headline]", 'Headline')
+!= Former::wysiwyg("blockCopyAndIconBulletPoint[{$id}][copy]", 'Copy')
+!= Former::radiolist("blockCopyAndIconBulletPoint[{$id}][theme]", 'Theme')->from(App\BlockCopyAndIconBulletPoint::$themes)->help('White or grey background.')
+!= Former::listing('App\IconTout', 'Bullet Points')->layout('form')

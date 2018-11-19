@@ -1,0 +1,45 @@
+!= View::make('decoy::shared.form._header', $__data)->render()
+
+-# Populate nested forms
+:php
+	if ($item && ($type_model = $item->typeModel())) {
+		app('former.populator')->put($item->typeRelationName(), [
+			$type_model->id => $type_model,
+		]);
+	}
+
+%fieldset
+	.legend=empty($item) ? 'New' : 'Edit'
+
+	!= Former::radiolist('type')->from(App\Block::typesForAdmin())->dataToggleable('type')
+
+	-# Add the forms for each block type
+	- foreach(array_keys(App\Block::typesForAdmin()) as $type)
+		%div(data-show-when-type=$type)
+			- if (($view = 'admin.blocks.'.$type) && View::exists($view))
+				:php
+					echo View::make($view, array_merge($__data, [
+
+							// Pass the id to use in form fields
+							'id' => $item && $item->type == $type ? $type_model->id : '_'.$type
+						]))->render();
+
+%fieldset
+	!= View::make('decoy::shared.form.display._legend', $__data)->render()
+
+	-# Build the parent URI to prepend to the anchor field
+	:php
+		$parent_class = App\Block::blockableTypeFromRoute();
+		$parent = call_user_func($parent_class.'::find', request()->segment(3));
+		$path = parse_url($parent->uri, PHP_URL_PATH);
+		echo Former::text('slug', 'URL fragment')
+			->help('Used to form the '
+				.($item&&$item->uri?"<a href='{$item->uri}'>URI</a>":'URI')
+				.' for this <b>Block</b>.')
+			->prepend($path.'#');
+
+	!= View::make('decoy::shared.form.display._visibility', $__data)->render()
+
+	!= Former::text('label')->help('Only displayed within the Admin to increase readability in lists of <b>Blocks</b>.')
+
+!= View::make('decoy::shared.form._footer', $__data)->render()
